@@ -9,22 +9,32 @@ class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static Map<String, Map<String, String>> _localizedValues = {
+  static final Map<String, Map<String, String>> _localizedValues = {
     'en': {
-      'appTitle': 'Internationalization Demo',
-      'welcomeMessage': 'Welcome to our internationalized app!',
+      'titleIntroduction': 'Internationalization Demo',
+      'welcomeMessageIntroduction': 'Welcome to our internationalized app!',
+      'buttonTitleIntroduction': 'Start',
     },
     'pt': {
-      'appTitle': 'Demonstração de Internacionalização',
-      'welcomeMessage': 'Bem-vindo ao nosso app internacionalizado!',
+      'titleIntroduction': 'Demonstração de Internacionalização',
+      'welcomeMessageIntroduction':
+          'Bem-vindo ao nosso app internacionalizado!',
+      'buttonTitleIntroduction': 'Começar',
     },
   };
 
-  String get appTitle {
-    return _localizedValues[locale.languageCode]!['appTitle'] ?? '';
+  String get titleIntroduction {
+    return _localizedValues[locale.languageCode]!['titleIntroduction'] ?? '';
   }
 
-  String get welcomeMessage {
-    return _localizedValues[locale.languageCode]!['welcomeMessage'] ?? '';
+  String get welcomeMessageIntroduction {
+    return _localizedValues[locale.languageCode]![
+            'welcomeMessageIntroduction'] ??
+        '';
+  }
+
+  String get buttonTitleIntroduction {
+    return _localizedValues[locale.languageCode]!['buttonTitleIntroduction'] ??
+        '';
   }
 }
