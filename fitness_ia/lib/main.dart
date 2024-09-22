@@ -1,7 +1,6 @@
 import 'package:fitness_ia/extension/LocalizationExtension.dart';
 import 'package:flutter/material.dart';
-import 'modules/i18n/app_localizations.dart';
-import 'modules/i18n/app_localizations_delegate.dart'; // Importe a classe AppLocalizations
+import 'modules/i18n/app_localizations_delegate.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,8 +18,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       supportedLocales: const [
-        Locale('en'), // Inglês
-        Locale('pt'), // Português
+        Locale('en'),
+        Locale('pt'),
       ],
       localizationsDelegates: const [
         AppLocalizationsDelegate(),
