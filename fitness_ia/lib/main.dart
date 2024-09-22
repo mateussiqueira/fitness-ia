@@ -1,3 +1,4 @@
+import 'package:fitness_ia/extension/LocalizationExtension.dart';
 import 'package:flutter/material.dart';
 import 'modules/i18n/app_localizations.dart';
 import 'modules/i18n/app_localizations_delegate.dart'; // Importe a classe AppLocalizations
@@ -34,18 +35,18 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final locale = AppLocalizations.of(context);
+
 
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(locale?.titleIntroduction ?? 'Default Title'),
-          Text(locale?.welcomeMessageIntroduction ?? 'Default Welcome Message'),
+          Text(context.loc.titleIntroduction ?? 'Default Title'),
+          Text(context.loc.welcomeMessageIntroduction ?? 'Default Welcome Message'),
           ElevatedButton(
             onPressed: () {},
-            child: Text(locale?.buttonTitleIntroduction ?? 'Default Button Text'),
+            child: Text(context.loc.buttonTitleIntroduction ?? 'Default Button Text'),
           ),
         ],
       ),
