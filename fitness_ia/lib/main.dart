@@ -1,11 +1,7 @@
-import 'package:fitness_ia/modules/i18n/app_localizations.dart';
 import 'package:flutter/material.dart';
-
-import 'modules/i18n/app_localizations_delegate.dart';
+import 'modules/i18n/app_localizations.dart'; // Importe a classe AppLocalizations
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-
   runApp(const MyApp());
 }
 
@@ -20,10 +16,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      locale: AppLocalizations.of(context)?.locale,
       supportedLocales: const [
-        Locale('en'),
-        Locale('pt'),
+        Locale('en'), // Inglês
+        Locale('pt'), // Português
       ],
       localizationsDelegates: const [
         AppLocalizationsDelegate(),
@@ -38,23 +33,39 @@ class TestPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // print(locale?.titleIntroduction);
+    final locale = AppLocalizations.of(context);
 
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Text(locale?.titleIntroduction ?? ''),
-          // Text(locale?.welcomeMessageIntroduction ?? ''),
-          // ElevatedButton(
-          //   onPressed: () {},
-          //   child: Text(
-          //     locale?.titleIntroduction ?? 'kmkmk',
-          //   ),
-          // ),
+          Text(locale?.titleIntroduction ?? 'Default Title'),
+          Text(locale?.welcomeMessageIntroduction ?? 'Default Welcome Message'),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(locale?.buttonTitleIntroduction ?? 'Default Button Text'),
+          ),
         ],
       ),
     );
   }
+}
+
+
+class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+  const AppLocalizationsDelegate();
+
+  @override
+  bool isSupported(Locale locale) {
+    return ['en', 'pt'].contains(locale.languageCode);
+  }
+
+  @override
+  Future<AppLocalizations> load(Locale locale) async {
+    return AppLocalizations(locale);
+  }
+
+  @override
+  bool shouldReload(AppLocalizationsDelegate old) => false;
 }

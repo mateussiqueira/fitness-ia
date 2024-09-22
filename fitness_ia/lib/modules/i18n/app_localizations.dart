@@ -24,8 +24,9 @@ class AppLocalizations {
   };
 
   String get titleIntroduction {
-    return 'sxsx';
+    return _localizedValues[locale.languageCode]!['titleIntroduction'] ?? '';
   }
+
 
   String get welcomeMessageIntroduction {
     return _localizedValues[locale.languageCode]![
