@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'modules/i18n/app_localizations.dart'; // Importe a classe AppLocalizations
+import 'modules/i18n/app_localizations.dart';
+import 'modules/i18n/app_localizations_delegate.dart'; // Importe a classe AppLocalizations
 
 void main() {
   runApp(const MyApp());
@@ -50,22 +51,4 @@ class TestPage extends StatelessWidget {
       ),
     );
   }
-}
-
-
-class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
-  const AppLocalizationsDelegate();
-
-  @override
-  bool isSupported(Locale locale) {
-    return ['en', 'pt'].contains(locale.languageCode);
-  }
-
-  @override
-  Future<AppLocalizations> load(Locale locale) async {
-    return AppLocalizations(locale);
-  }
-
-  @override
-  bool shouldReload(AppLocalizationsDelegate old) => false;
 }
